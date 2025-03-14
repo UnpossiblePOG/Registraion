@@ -66,6 +66,14 @@ function commonUserFieldValidation($prep_db,$full_name,$email,$password,$conf_pa
     	{
     		$error_array[]= "Password and confirm password do not match.";
     	}
+    	else
+    	{
+    		$num = checkValidPassword($password);
+			if($num==0)
+			{
+				$error_array[]= "Password must contain at least one uppercase character, at least one lowercase character and at least one number.";
+			}
+    	}
     }
     if($gender=="")
     {
